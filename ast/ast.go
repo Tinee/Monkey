@@ -6,10 +6,14 @@ import (
 	"github.com/Tinee/monkey/token"
 )
 
-type User struct {
-	Name      string
-	FirstName string
+type IntegerLiteral struct {
+	Token token.Token
+	Value int64
 }
+
+func (i *IntegerLiteral) expressionNode()      {}
+func (i *IntegerLiteral) TokenLiteral() string { return i.Token.Literal }
+func (i *IntegerLiteral) String() string       { return i.Token.Literal }
 
 type ExpressionStatement struct {
 	Token      token.Token
